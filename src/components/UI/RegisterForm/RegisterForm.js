@@ -2,19 +2,21 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Joi from 'joi';
 import _ from 'lodash';
-import './MyForm.css';
+import './RegisterForm.css';
 
-export default class MyForm extends React.Component {
+export default class RegisterForm extends React.Component {
     state = {
         form:[
-            {value: '', label: 'Email',name: 'email', type: 'email', placeholder: 'Enter Email'},
+            {value: '', label: 'Name',name: 'name', type: 'text', placeholder: 'Your Name'},
+            {value: '', label: 'Username',name: 'username', type: 'email', placeholder: 'enter your email'},
             {value: '', label: 'Password',name: 'password', type: 'password', placeholder: 'Secret Password'},
         ],
         errors: {}
     }
 
     schema = {
-        email: Joi.string().email().required(),
+        name: Joi.string().min(2).required(),
+        username: Joi.string().email().required(),
         password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).min(5).required()
     }
 
@@ -62,10 +64,9 @@ export default class MyForm extends React.Component {
     }
 
   render() {
-  console.log(this.props);    
     return (
-        <div className = "MyForm__Container">
-            <Form onSubmit = { (e)=>this.onSubmit(e) }  className = "MyForm">
+        <div className = "RegisterForm__Container">
+            <Form onSubmit = { (e)=>this.onSubmit(e) }  className = "RegisterForm">
                 {this.state.form.map(field=>(
                     <FormGroup key = {field.name}>
                         <Label for={field.name}>{field.name}</Label>
@@ -74,7 +75,7 @@ export default class MyForm extends React.Component {
                     </FormGroup>
                 ))}
        
-                <Button> Submit</Button>
+                <Button>Register Now</Button>
            </Form>
         
         </div>

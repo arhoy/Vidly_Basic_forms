@@ -6,8 +6,10 @@ import RentalPage from './pages/RentalsPage/RentalPage/RentalPage';
 import CustomersPage from './pages/CustomersPage/CustomersPage';
 import AccountPage from './pages/AccountPage/AccountPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import MoviePage from './pages/MoviePage/MoviePage';
+import MovieFormPage from './pages/MovieFormPage/MovieFormPage'
 import {Route, Switch,Redirect} from 'react-router-dom';
 
 class App extends Component {
@@ -20,9 +22,12 @@ class App extends Component {
           <Route exact path = "/rentals" component = {RentalsPage} />
           <Route  path = "/account" component = {AccountPage} />
           <Route  path = "/account/:details" component = {AccountPage} />
+          <Route exact path = "/movies/new" component = {MovieFormPage}/> 
           <Route path = "/movies/:id" component = {MoviePage} />
           <Redirect exact from  = "/movies" to =  "/"/>             {/* // in this case movies is the main page */}  
           <Route path = "/login" component = {LoginPage}/> 
+          <Route path = "/register" component = {RegisterPage}/> 
+         
           <Route path = "/not-found" component = {NotFoundPage}/>
           <Route exact path = "/" component = {HomePage} />
           <Redirect to = "/not-found"/>

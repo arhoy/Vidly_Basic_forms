@@ -55,6 +55,9 @@ export default class CustomNav extends Component {
                   <DropdownItem>
                   <NavLink href="/login">Login</NavLink>
                   </DropdownItem>
+                  <DropdownItem>
+                  <NavLink href="/register">Register</NavLink>
+                  </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
                     Logout

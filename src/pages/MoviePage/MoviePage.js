@@ -1,10 +1,12 @@
 import React from 'react';
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/Header';
+import MovieForm from '../../components/UI/MovieForm/MovieForm';
 
 const MoviePage = (props) => {
     const returnToMoviesHandler = ()=>{
         props.history.push('/movies');
     }
+   
     return (
         <div>
                 <Header/>
@@ -12,6 +14,11 @@ const MoviePage = (props) => {
                 <div> The movie id is: </div>
                 <div>{props.match.params.id}</div>
                 <button onClick = {returnToMoviesHandler} className = "btn btn-primary">Return to all movies</button>
+                <div style = {{marginBottom: '3rem'}}></div>
+                <div>  </div>
+                <MovieForm
+                    props = {props}
+                />
         </div>
     );
 };
